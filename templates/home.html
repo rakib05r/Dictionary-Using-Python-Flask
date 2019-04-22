@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    {% if title %}
+        <title>Bangla Dictionary - {{ title }}</title>
+    {% else %}
+        <title>Bangla Dictionary</title>
+    {% endif %}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="/">English to Bangla Dictionary</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto pad_nav">
+                        <a class="nav-item nav-link" href="/all_word">ALL WORD</a>
+                        <a class="nav-item nav-link" href="/home">HOME</a>
+                        <a class="nav-item nav-link" href="/about">ABOUT</a>
+                        <a class="nav-item nav-link" href="/a_to_e">(A - E)</a>
+                        <a class="nav-item nav-link" href="/f_to_j">(F - J)</a>
+                        <a class="nav-item nav-link" href="/k_to_o">(K - O)</a>
+                        <a class="nav-item nav-link" href="/p_to_t">(P - T)</a>
+                        <a class="nav-item nav-link" href="/u_to_z">(U - Z)</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 btn">
+                    <i><h3 style="color:#7b7e82; background-color:#757c7c; color:#42e8f4;">Search For an English Word</h3></i>
+                    <h4 style="color:blue;">Write Your Word in Below Input Box</h4>
+                    <ul style="list-style:none;">
+                        <i><li>Click Go</li></i>
+                        <i><li>Or</li></i>
+                        <i><li>Press Enter</li></i>
+                    </ul>
+                    <div class="drop_down">
+                        <div id="my_Drop_down" class="dropdown-content">
+                            <form action="{{url_for('home')}}" method="post">
+                                <input onclick="myFunction()" type="search" placeholder="Search Your Word Here...." id="myInput" name="name" onkeyup="filterFunction()">
+                                <button>Go</button>
+                            </form>
+                            <ul class="list-group" style="list-style:none; color:red; margin-top:15px">
+                                {% for data in rows %}
+                                    {% if data %}
+                                <li><p>{{data[1]}}<br>{{data[2]}}<br><br></p></li></li>
+                                    {% endif%}
+                                    {% else %}
+                                <h4>No Such Word</h4>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function myFunction() {
+            document.getElementById("my_Drop_down").classList.toggle("show");
+            }
+
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("my_Drop_down");
+            a = div.getElementsByTagName("p");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  a[i].style.display = "";
+                }
+                else {
+                  a[i].style.display = "none";
+                }
+              }
+            }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

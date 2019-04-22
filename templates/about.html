@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    {% if title %}
+        <title>Bangla Dictionary - {{ title }}</title>
+    {% else %}
+        <title>Bangla Dictionary</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="/">English to Bangla Dictionary</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="/all_word">ALL WORD</a>
+                        <a class="nav-item nav-link" href="/home">HOME</a>
+                        <a class="nav-item nav-link" href="/about">ABOUT</a>
+                        <a class="nav-item nav-link" href="/a_to_e">(A - E)</a>
+                        <a class="nav-item nav-link" href="/f_to_j">(F - J)</a>
+                        <a class="nav-item nav-link" href="/k_to_o">(K - O)</a>
+                        <a class="nav-item nav-link" href="/p_to_t">(P - T)</a>
+                        <a class="nav-item nav-link" href="/u_to_z">(U - Z)</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="text-align:center; background-color:#e5dcef; color:#09a3b5;">About Bangla Dictionary</h3>
+
+                    <h5 style="color:blue;">How to Use?</h5>
+                    <p>Here you can easily find your english word bangla meaning.For finding any word
+                    you can search on all word here you will show suggestion of your finding like word.
+                    You can directly search your word on home page by writing your word and press enter.</p>
+
+                    <h5 style="color:blue;">Technology used?</h5>
+                    <p>It's a simple English to Bangla Dictionary made by python language flask framework and sqlite3 database.</p>
+
+                    <h5 style="color:blue;">What About Bangla Language?</h5>
+                    <p>With over 250 million speakers, Bengali is the seventh most spoken native language
+                    in the world due to their population.It has been influenced by other language families
+                    prevalent in South Asia, notably the Dravidian, the Austroasiatic, and the Tibeto-Burman families,
+                    all of which contributed to Bengali vocabulary and provided the language with some structural forms.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
